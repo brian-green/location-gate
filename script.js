@@ -6,9 +6,16 @@ request.onload = function () {
   var data = JSON.parse(this.response);
 
   if (request.status >= 200 && request.status < 400) {
-    console.log(data['country_name']);
+    var location = data['country_name'];
+
+    if (location != 'United States') {
+      window.location = "https://booking.com";
+    } else {
+      console.log("It's the USA");
+    }
+
   } else {
-    console.log('ERROR BOI');
+    console.log('NETWORK ERROR BOI');
   }
 }
 
